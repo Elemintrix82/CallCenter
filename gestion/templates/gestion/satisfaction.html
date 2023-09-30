@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative p-0">
+        {% include 'includes/navbar.html' %}
+
+        <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px; background-image: static/img/carousel.jpg;">
+            <div class="row py-5">
+                <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+                    <h1 class="display-4 text-white animated zoomIn">Satisfaction</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Full Screen Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center justify-content-center">
+                    <div class="input-group" style="max-width: 600px;">
+                        <input type="text" class="form-control bg-transparent border-primary p-3" placeholder="Type search keyword">
+                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Full Screen Search End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">Notez-nous</h5>
+                <h1 class="mb-0">Votre satisfaction est notre priorité.</h1>
+                <p>
+                    Nous nous engageons à vous fournir un service client de qualité, et nous nous soucions de votre expérience.
+                    Nous nous efforçons de répondre à vos questions et demandes de manière rapide et efficace. Nous sommes disponibles 24h/24 et 7j/7 pour vous aider.
+                    Nous apprécions vos commentaires et suggestions. Ils nous aident à améliorer notre service et à répondre encore mieux à vos besoins.
+                </p>
+            </div>
+            
+            <div class="row g-5">
+                <div class="col-lg-6 wow slideInUp" data-wow-delay="0.3s">
+                    {% if message %}
+                        <div class="alert alert-success mt-3">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                    <form action="{% url 'satisfaction' %}" method="POST" >
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-md-6 from-control border-0 bg-light px-4">
+                                <label>Nom</label>
+                                {{ form.nom }}
+                            </div>
+                            <div class="col-md-6 from-control border-0 bg-light px-4">
+                                <label>Email</label>
+                                {{ form.email }}
+                            </div>
+                            <div class="col-md-6 from-control border-0 bg-light px-4">
+                                <label>Qualité du service</label>
+                                {{ form.qualite }} /10
+                            </div>
+                            <div class="col-md-6 from-control border-0 bg-light px-4">
+                                <label>Temps de réponse</label>
+                                {{ form.temps_reponse }} /10
+                            </div>
+                            <div class="col-md-6 from-control border-0 bg-light px-4">
+                                <label>Résolution du problème</label>
+                                {{ form.resolution }} /10
+                            </div>
+                            <div class="col-md-6 from-control border-0 bg-light px-4">
+                                <label>Recommandation</label>
+                                {{ form.recommandation }}
+                            </div>
+                            <div class="col-md-12 from-control border-0 bg-light px-4">
+                                <label>Compétence et professionnalisme du technicien</label>
+                                {{ form.competence }} /10
+                            </div>
+                            <div class="col-12 from-control border-0 bg-light px-4">
+                                <label>Commentaire</label>
+                                {{ form.commentaire }}
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Envoyer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6 wow slideInUp" data-wow-delay="0.6s">
+                        <img class="position-relative rounded w-100 h-100"  src="{% static "img/image.jpg" %}" style="object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+    
+
+    {% endblock content %}
