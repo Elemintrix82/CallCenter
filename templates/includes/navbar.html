@@ -9,7 +9,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav ms-auto py-0">
-          <a href="{% url 'home' %}" {% if current_page == '/' %} class="nav-item nav-link active" {% else %} class="nav-item nav-link" {% endif %}>Home</a>
+          <a href="{% url 'home' %}" {% if current_page == '/' %} class="nav-item nav-link active" {% else %} class="nav-item nav-link" {% endif %}>Acceuil</a>
           <a href="{% url "service" %}" {% if current_page == 'service/' %} class="nav-item nav-link active" {% else %} class="nav-item nav-link"   {% endif %}>Services</a>
           <a href="{% url "about" %}" {% if current_page == 'about/' %} class="nav-item nav-link active" {% else %} class="nav-item nav-link"  {% endif %}>À propos</a>
           <a href="{% url "contact" %}" {% if current_page == 'contact/' %} class="nav-item nav-link active" {% else %} class="nav-item nav-link"  {% endif %}>Contact</a>      
