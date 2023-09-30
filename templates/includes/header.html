@@ -13,7 +13,7 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="{% url 'home' %}" {% if current_page == '/' %} class="get-a-quote active" {% endif %} hx-swap-refresh="body">Acceuil</a></li>
+          <li><a href="{% url 'home' %}" {% if current_page == '/' %} class="get-a-quote active" {% endif %} hx-swap-refresh="body">Home</a></li>
             <li><a href="{% url 'cours' %}" {% if current_page == '/cours/' %} class="get-a-quote active" {% endif %} hx-swap-refresh="body">Tous les cours</a></li>
             <li><a href="{% url 'about' %}" {% if current_page == '/about/' %} class="get-a-quote active" {% endif %} hx-swap-refresh="body">À propos</a></li>
             <li><a href="{% url 'teams' %}" {% if current_page == '/teams/' %} class="get-a-quote active" {% endif %} hx-swap-refresh="body">équipe</a></li>
